@@ -14,3 +14,24 @@
 <!-- 🐨 Append the div to the root div using `append` -->
 <!--   💰 document.getElementById('root') -->
 <!--   📜 https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/append -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epic React</title>
+</head>
+
+<body>
+
+    <script type="module">
+        let rootEle = document.createElement('div');
+        rootEle.setAttribute('id', 'root')
+        rootEle.innerText = "Hello World!!!!";
+        document.body.appendChild(rootEle);
+    </script>
+</body>
+
+</html>
