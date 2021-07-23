@@ -13,7 +13,7 @@
         // 💰 {message({children: 'Hello World'})} {message({children: 'Goodbye World'})}
 
         function message({ children }) {
-            return <div className="message">{children}</div>
+            return React.createElement('div', { className: 'message' }, children)
         }
         const element = (
             <div className="container">
