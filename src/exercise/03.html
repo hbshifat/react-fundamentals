@@ -9,11 +9,14 @@
 
     <script type="text/babel">
         // 🐨 re-implement this using JSX!
-        const ui = <div className="container">Hello World</div>
+        const className = 'container';
+        const children = 'Hello World';
+        const props = { className, children }
+        const ui = <div {...props} />
 
         // 📜 You can learn the differences between JSX and HTML syntax from the React docs here:
         // https://reactjs.org/docs/dom-elements.html#differences-in-attributes
 
-        ReactDOM.render(element, document.getElementById('root'))
+        ReactDOM.render(ui, document.getElementById('root'))
     </script>
 </body>
