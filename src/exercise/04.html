@@ -8,23 +8,45 @@
     <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
     <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
     <script type="text/babel">
-        function Message({ subject, greeting }) {
-            return (
-                <div className="message">
-                    {greeting}, {subject}
-                </div>
-            )
+        const posts = [
+            {
+                id: '423j84923n9023',
+                title: 'Solemon the servent of Allah',
+                charecture: 45,
+                specialCharecture: ['Love', 'Passion', 'Hard Work', 45]
+            }
+        ]
+
+        function PostList({ postList }) {
+            const postsUI = postList.map(post => {
+                return (
+                    <li key={post.id}>
+                        <p><strong>Title : </strong>{post.title}</p>
+                        <p><strong>Charecture : </strong>{post.charecture}</p>
+                    </li>
+                )
+            })
+            return postsUI;
         }
 
-        Message.propTypes = {
-            subject: PropTypes.string.isRequired,
-            greeting: PropTypes.string.isRequired
+        PostList.defaultProps = {
+            posts: []
         }
+
+        PostList.propTypes = {
+            postList: PropTypes.arrayOf(PropTypes.shape({
+                id: PropTypes.string,
+                title: PropTypes.string.isRequired,
+                charecture: PropTypes.number,
+                specialCharecture: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
+            }))
+        }
+
+
 
         const element = (
             <div className="container">
-                <Message greeting={5} subject="World" />
-                <Message greeting="Goodbye" />
+                <PostList postList={posts} />
             </div>
         )
 
