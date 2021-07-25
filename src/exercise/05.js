@@ -13,11 +13,14 @@ import '../box-styles.css'
 // 🐨 add a style prop to each of them as well so their background color
 // matches what the text says it should be as well as `fontStyle: 'italic'`
 
-function Box({size, style, children}) {
+function Box({size, style, ...otherProps}) {
+  const sizeGenerator = size ? `box--${size}` : ''
   return (
-    <div className={`box box--${size}`} style={style}>
-      {children}
-    </div>
+    <div
+      className={`box ${sizeGenerator}`.trim()}
+      style={{fontStyle: 'italic', ...style}}
+      {...otherProps}
+    ></div>
   )
 }
 const smallBox = (
@@ -44,6 +47,7 @@ function App() {
       {smallBox}
       {mediumBox}
       {largeBox}
+      <Box>SizeLess Box</Box>
     </div>
   )
 }
